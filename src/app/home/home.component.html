@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Dileep Hospitals - Advanced Healthcare with Compassionate Care">
+    <meta name="keywords" content="Hospital, Healthcare, Treatment, Emergency, Heart Institute">
+    <meta name="author" content="Dileep Hospitals">
+    <title>Dileep Hospitals</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(218, 246, 168);
+            color: #333;
+        }
+
+        .navbar {
+            background-color: darkslateblue;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            height: 70px;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .btn {
+            background-color: #fff;
+            color: #007bff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            background-color: black;
+            color: white;
+        }
+
+        .hero {
+            background:rgba(255, 255, 255, 0.5);
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .sections {
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .section-text {
+            flex: 1;
+            padding: 10px 20px;
+        }
+
+        .section-text h3 {
+            margin-top: 0;
+        }
+
+        footer {
+            background-color: darkslateblue;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-brand">Dileep Hospitals</div>
+        <div>
+            <button class="btn" routerLink="/doclogin" routerLinkActive="router-link-active" >Doctor Login</button>
+            <button class="btn" routerLink="/adminlogin" routerLinkActive="router-link-active">Admin Login</button>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>Welcome to Dileep Hospitals</h1>
+        <p>Advanced Healthcare with Compassionate Care</p>
+        <button class="btn"  (click)="bookAppointment()">Book an Appointment</button>
+    </div>
+
+    <div class="sections">
+        <div class="section">
+            <img src="assets/why-choose.jpg" alt="Why Choose Us" style="max-width: 300px;">
+            <div class="section-text">
+                <h3>Why Choose Dileep Healthcare?</h3>
+                <p>We are a network of the world’s finest medical experts offering compassionate care, cutting-edge treatments, and advanced technology.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <img src="assets/favicon.jpg" alt="Heart Institute" style="max-width: 300px;">
+            <div class="section-text">
+                <h3>Heart Institute Expertise</h3>
+                <p>Our Heart Institute is renowned for its outstanding cardiology and cardiothoracic surgery services, ensuring the best outcomes.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <img src="assets/emergency-care.jpg" alt="Emergency Care" style="max-width: 300px;">
+            <div class="section-text">
+                <h3>24/7 Emergency Care</h3>
+                <p>Dial "1066" for advanced emergency care and free ambulance service anywhere, anytime.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Contact Us: 1860 344 5454 | © 2024-2025 Dileep Hospitals</p>
+    </footer>
+</body>
+
+</html>
+<router-outlet></router-outlet>

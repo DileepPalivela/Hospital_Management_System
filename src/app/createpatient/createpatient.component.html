@@ -1,0 +1,257 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dileep Hospital</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdJ+1wM3eVpF3w8pE4Zf6zBfnMzNfEXpF5El8OlgY5gT4p1T4g0O8r" crossorigin="anonymous">
+  <!-- Google Fonts for Dileep Hospital name -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    .container {
+      margin-top: 30px;
+    }
+    h1 {
+      color: #5a5a5a;
+      text-align: center;
+      font-weight: 300; /* Light font weight */
+    }
+    .navbar {
+      justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: darkslateblue;
+    }
+    .navbar a {
+      color: white !important;
+      font-size: 1.3rem;
+      text-decoration: none; /* Removes underline */
+    }
+    .navbar .navbar-brand {
+      font-family: 'Poppins', sans-serif; /* Changed font */
+      font-size: 2.5rem; /* Bigger font size */
+      font-weight: 300; /* Light font weight */
+      color: #fff !important;
+      margin-left: 20px;
+      text-decoration: none; /* Removes underline */
+      letter-spacing: 1px; /* Adds spacing between letters */
+    }
+    .navbar-nav {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+    .navbar-nav .nav-item {
+      margin: 0 15px;
+    }
+    .table {
+      margin-top: 20px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+
+    }
+    .table th, .table td {
+      text-align: center;
+      padding: 15px;
+      vertical-align: middle;
+      font-weight: 300; /* Light font weight */
+    }
+    .table-striped tbody tr:nth-of-type(odd) {
+      background-color: #f9f9f9;
+    }
+    .table-bordered {
+      border: 1px solid #ddd;
+    }
+    .table-hover tbody tr:hover {
+      background-color: #f1f1f1;
+    }
+    .thead-dark {
+      background-color: #343a40;
+      color: white;
+      font-weight: 600; /* Bold font weight for header */
+    }
+    .table th {
+      font-size: 1.1rem;
+    }
+    .table td {
+      font-size: 1rem;
+    }
+    .btn-danger1{
+      height: 30px;
+      background-color: red;
+      border-radius: 10px;
+
+    }
+    .butt{
+      margin-left: 275px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Dileep Hospital</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/createpatient" routerLinkActive="active">Add Patient</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/medicine-info" routerLinkActive="active">New Medicine</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" routerLink="/appointment" routerLinkActive="active">Appointments</a>
+          </li> -->
+          <li class="butt">
+            <button  class="btn-danger1" routerLink="/home"  routerLinkActive="router-link-active" >Log out</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <!-- Bootstrap JS & Popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybC8Rpm4R9CUyTnK+M7P56kfa8v3Do6jR9j5Z1jFi5Aw3d0JvZ" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0v8FqOw0fjk9pJS1tqzC4o4AN38U8bPp6f5PR0t9SJOlySu4" crossorigin="anonymous"></script>
+</body>
+</html>
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Add New Patient</h2>
+  <form (ngSubmit)="onSubmit()" #patientForm="ngForm" class="p-4 border rounded shadow-sm bg-light">
+
+    <!-- Name Input -->
+    <div class="mb-3 row">
+      <label for="name" class="col-sm-3 col-form-label">Name:</label>
+      <div class="col-sm-9">
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          name="name"
+          [(ngModel)]="patient.name"
+          required
+          placeholder="Enter patient's name"
+          #name="ngModel"
+        />
+        <div *ngIf="name.invalid && name.touched" class="error-message">
+          Name is required.
+        </div>
+      </div>
+    </div>
+
+    <!-- Age Input -->
+    <div class="mb-3 row">
+      <label for="age" class="col-sm-3 col-form-label">Age:</label>
+      <div class="col-sm-9">
+        <input
+          type="number"
+          id="age"
+          class="form-control"
+          name="age"
+          [(ngModel)]="patient.age"
+          required
+          min="1"
+          max="120"
+          placeholder="Enter patient's age"
+          #age="ngModel"
+        />
+        <div *ngIf="age.invalid && age.touched" class="error-message">
+          Age is required (1-120).
+        </div>
+      </div>
+    </div>
+
+    <!-- Blood Type Input -->
+    <div class="mb-3 row">
+      <label for="blood" class="col-sm-3 col-form-label">Blood Type:</label>
+      <div class="col-sm-9">
+        <input
+          type="text"
+          id="blood"
+          class="form-control"
+          name="blood"
+          [(ngModel)]="patient.blood"
+          required
+          placeholder="Enter patient's blood type"
+          #blood="ngModel"
+        />
+        <div *ngIf="blood.invalid && blood.touched" class="error-message">
+          Blood type is required.
+        </div>
+      </div>
+    </div>
+
+    <!-- Prescription Input -->
+    <div class="mb-3 row">
+      <label for="prescription" class="col-sm-3 col-form-label">Prescription:</label>
+      <div class="col-sm-9">
+        <input
+          type="text"
+          id="prescription"
+          class="form-control"
+          name="prescription"
+          [(ngModel)]="patient.prescription"
+          required
+          placeholder="Enter prescription details"
+          #prescription="ngModel"
+        />
+        <div *ngIf="prescription.invalid && prescription.touched" class="error-message">
+          Prescription is required.
+        </div>
+      </div>
+    </div>
+
+    <!-- Dose Input -->
+    <div class="mb-3 row">
+      <label for="dose" class="col-sm-3 col-form-label">Dose:</label>
+      <div class="col-sm-9">
+        <input
+          type="text"
+          id="dose"
+          class="form-control"
+          name="dose"
+          [(ngModel)]="patient.dose"
+          required
+          placeholder="Enter dose details"
+          #dose="ngModel"
+        />
+        <div *ngIf="dose.invalid && dose.touched" class="error-message">
+          Dose is required.
+        </div>
+      </div>
+    </div>
+
+    <!-- Urgency Input -->
+    <div class="mb-3 row">
+      <label for="urgency" class="col-sm-3 col-form-label">Urgency:</label>
+      <div class="col-sm-9">
+        <input
+          type="text"
+          id="urgency"
+          class="form-control"
+          name="urgency"
+          [(ngModel)]="patient.urgency"
+          required
+          placeholder="Enter urgency level"
+          #urgency="ngModel"
+        />
+        <div *ngIf="urgency.invalid && urgency.touched" class="error-message">
+          Urgency is required.
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary" [disabled]="patientForm.invalid">Submit</button>
+    </div>
+  </form>
+</div>

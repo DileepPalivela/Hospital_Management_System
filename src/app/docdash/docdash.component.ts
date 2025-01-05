@@ -1,19 +1,20 @@
-import { FormsModule } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { PatientService } from './../patient.service';
+import { Component } from '@angular/core';
 import { Patient } from '../patient';
-import { PatientService } from '../patient.service';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
+
 
 @Component({
-  selector: 'app-admindash',
+  selector: 'app-docdash',
   standalone: true,
-  imports: [CommonModule, FormsModule,RouterOutlet,RouterLink],
-  templateUrl: './admindash.component.html',
-  styleUrls: ['./admindash.component.css']
+  imports: [CommonModule,FormsModule,RouterLink],
+  templateUrl: './docdash.component.html',
+  styleUrl: './docdash.component.css'
 })
-export class AdmindashComponent implements OnInit {
-delete(id: number) {
+export class DocdashComponent {
+  delete(id: number) {
     this.patientService.deletePatient(id).subscribe((data) => {
       console.log(data);
       this.getPatients();
@@ -39,3 +40,5 @@ delete(id: number) {
     );
   }
 }
+
+

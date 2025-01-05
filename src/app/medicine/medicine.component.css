@@ -1,0 +1,29 @@
+body {
+  background: linear-gradient(135deg, #103162, #154084); /* Gradient background */
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+
+
+.submit-button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.hover-hand {
+  margin-left: 35%;
+  color: lightseagreen;
+  cursor: pointer;
+}

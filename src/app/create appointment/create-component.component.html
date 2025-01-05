@@ -1,0 +1,93 @@
+<form (ngSubmit)="onSubmit()" #appointmentForm="ngForm" class="appointment-form">
+  <h2 class="text-center mb-4 text-primary">Create Appointment</h2>
+
+  <!-- ID Input -->
+
+
+
+  <!-- Name Input -->
+  <div class="mb-3 row">
+    <label for="name" class="col-sm-3 col-form-label">Name:</label>
+    <div class="col-sm-9">
+      <input
+        type="text"
+        id="name"
+        class="form-control"
+        name="name"
+        placeholder="Enter Name"
+        [(ngModel)]="appointment.name"
+        required
+        #name="ngModel"
+      />
+      <div *ngIf="name.invalid && name.touched" class="error-message">
+        Name is required.
+      </div>
+    </div>
+  </div>
+
+  <!-- Age Input -->
+  <div class="mb-3 row">
+    <label for="age" class="col-sm-3 col-form-label">Age:</label>
+    <div class="col-sm-9">
+      <input
+        type="number"
+        id="age"
+        class="form-control"
+        name="age"
+        [(ngModel)]="appointment.age"
+        required
+        min="1"
+        max="120"
+        #age="ngModel"
+      />
+      <div *ngIf="age.invalid && age.touched" class="error-message">
+        Age is required.
+      </div>
+    </div>
+  </div>
+
+  <!-- Symptoms Input -->
+  <div class="mb-3 row">
+    <label for="symtomps" class="col-sm-3 col-form-label">Symptoms:</label>
+    <div class="col-sm-9">
+      <input
+        type="text"
+        id="symtomps"
+        class="form-control"
+        name="symtomps"
+        [(ngModel)]="appointment.symtomps"
+        required
+        #symtomps="ngModel"
+      />
+      <div *ngIf="symtomps.invalid && symtomps.touched" class="error-message">
+        Symptoms are required.
+      </div>
+    </div>
+  </div>
+
+  <!-- Number Input -->
+  <div class="mb-3 row">
+    <label for="number" class="col-sm-3 col-form-label">Number:</label>
+    <div class="col-sm-9">
+      <input
+        type="tel"
+        id="number"
+        class="form-control"
+        name="number"
+        [(ngModel)]="appointment.number"
+        required
+        #number="ngModel"
+      />
+      <div *ngIf="number.invalid && number.touched" class="error-message">
+        Number is required.
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <!-- Submit Button -->
+  <div class="d-flex justify-content-center">
+    <button type="submit" class="btn btn-success" [disabled]="appointmentForm.invalid">Submit</button>
+  </div>
+</form>
