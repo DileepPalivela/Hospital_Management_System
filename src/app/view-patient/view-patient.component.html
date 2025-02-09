@@ -83,7 +83,7 @@
       padding: 7px 9px;
     }
     .butt{
-      margin-left: 325px;
+      margin-left: 275px;
     }
   </style>
 </head>
@@ -98,18 +98,18 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/docdash" routerLinkActive="active">DashBoard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/createpatient" routerLinkActive="active">Add Patient</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/medicine-info" routerLinkActive="active">New Medicine</a>
+          </li>
 
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/createpatient" routerLinkActive="active">Add New Patient</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/medicine-info" routerLinkActive="active">Medicine Information</a>
-          </li>
-           <li class="nav-item">
-            <a class="nav-link" routerLink="/docappointment" routerLinkActive="active">Appointments</a>
-          </li>
           <li class="butt">
-            <button  class="btn-danger1" (click)="logout()"  routerLinkActive="router-link-active" >Log out</button>
+            <button  class="btn-danger1" routerLink="/home"  routerLinkActive="router-link-active" >Log out</button>
           </li>
         </ul>
       </div>
@@ -123,80 +123,40 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0v8FqOw0fjk9pJS1tqzC4o4AN38U8bPp6f5PR0t9SJOlySu4" crossorigin="anonymous"></script>
 </body>
 </html>
-<html>
-<head>
-  <style>
+<div align="center">
 
-    .table {
-      margin-top: 20px;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
+<div class="patient-details">
+  <h2 class="patient-title">Patient Information</h2>
 
-    }
-    .table th, .table td {
-      text-align: center;
-      padding: 15px;
-      vertical-align: middle;
-      font-weight: 300; /* Light font weight */
-    }
-    .table-striped tbody tr:nth-of-type(odd) {
-      background-color: #f9f9f9;
-    }
-    .table-bordered {
-      border: 1px solid #ddd;
-    }
-    .table-hover tbody tr:hover {
-      background-color: #f1f1f1;
-    }
-    .thead-dark {
-      background-color: #343a40;
-      color: white;
-      font-weight: 600; /* Bold font weight for header */
-    }
-    .table th {
-      font-size: 1.1rem;
-    }
-    .table td {
-      font-size: 1rem;
+  <div class="patient-info">
+    <label>Id: <b>{{patient.id}}</b></label>
+  </div>
 
-    }
+  <div class="patient-info">
+    <label>Name: <b>{{patient.name}}</b></label>
+  </div>
 
+  <div class="patient-info">
+    <label>Age: <b>{{patient.age}}</b></label>
+  </div>
 
+  <div class="patient-info">
+    <label>Blood Group: <b>{{patient.blood}}</b></label>
+  </div>
 
-  </style>
-</head>
-<h2 align="center" style="color: blueviolet;">Patients Information</h2>
-<table align="center" class="table table-striped table-bordered table-hover">
-  <thead class="thead-dark">
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Blood Type</th>
-      <th>Prescription</th>
-      <th>Dose</th>
-      <th>Urgency</th>
-      <th>Actions</th>
+  <div class="patient-info">
+    <label>Prescription: <b>{{patient.prescription}}</b></label>
+  </div>
 
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let patient of patients">
-      <td>{{ patient.id }}</td>
-      <td>{{ patient.name }}</td>
-      <td>{{ patient.age }}</td>
-      <td>{{ patient.blood }}</td>
-      <td>{{ patient.prescription }}</td>
-      <td>{{ patient.dose }}</td>
-      <td>{{ patient.urgency }}</td>
-      <td>
-        <button (click)="update(patient.id )" class="btn-danger" style="background-color: green;margin-right: 10px;padding: 4px 6px; border-radius: 4px;">Update</button>
+  <div class="patient-info">
+    <label>Dose: <b>{{patient.dose}}</b></label>
+  </div>
 
-        <button (click)="delete(patient.id) " class="btn-danger" style="background-color: red;padding: 4px 6px; margin-right: 10px; border-radius: 4px;">Delete</button>
-        <button (click)="view(patient.id) " class="btn-danger" style="background-color: skyblue;padding: 4px 8px; margin-right: 10px; border-radius: 4px;">View</button>
+  <div class="patient-info">
+    <label>Fees: <b>{{patient.fees}}</b></label>
+  </div>
 
-      </td>
-    </tr>
-  </tbody>
-</table>
-</html>
+  <div class="patient-info">
+    <label>Urgency: <b>{{patient.urgency}}</b></label>
+  </div>
+</div>

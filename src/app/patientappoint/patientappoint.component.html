@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+
 
 <head>
     <meta charset="UTF-8">
@@ -47,26 +47,6 @@
             color: white;
         }
 
-        .hero {
-            background:rgba(255, 255, 255, 0.5);
-            height: 70vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: black;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
 
         .sections {
             padding: 20px;
@@ -108,7 +88,7 @@
 
 </head>
 
-<body>
+
 
     <nav class="navbar">
         <div class="navbar-brand">Dileep Hospitals</div>
@@ -117,29 +97,95 @@
             <button class="btn" routerLink="/adminlogin" routerLinkActive="router-link-active">Admin Login</button>
         </div>
     </nav>
+  <form (ngSubmit)="onSubmit()"  class="appointment-form">
 
-    <div class="hero">
-        <h1>Welcome to Dileep Hospitals</h1>
-        <p>Advanced Healthcare with Compassionate Care</p>
-        <button class="btn"  (click)="bookAppointment()">Book an Appointment</button>
+<h1>Book Appointment</h1>
+      <label for="name" class="col-sm-3 col-form-label">Name:</label>
+      <div class="col-sm-9">
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          name="name"
+          placeholder="Enter Name"
+          [(ngModel)]="appointment.name"
+          required
+          #name="ngModel"
+        />
+        <div *ngIf="name.invalid && name.touched" class="error-message">
+          Name is required.
+        </div>
+      </div>
+<br>
+
+    <!-- Age Input -->
+    <div class="mb-3 row">
+      <label for="age" class="col-sm-3 col-form-label">Age:</label>
+      <div class="col-sm-9">
+        <input
+          type="number"
+          id="age"
+          class="form-control"
+          name="age"
+          [(ngModel)]="appointment.age"
+          required
+          min="1"
+          max="120"
+          #age="ngModel"
+        />
+        <div *ngIf="age.invalid && age.touched" class="error-message">
+          Age is required.
+        </div>
+      </div>
+    </div>
+    <br>
+    <!-- Symptoms Input -->
+    <div class="mb-3 row">
+      <label for="symtomps" class="col-sm-3 col-form-label">Symptoms:</label>
+      <div class="col-sm-9">
+        <input
+          type="text"
+          id="symtomps"
+          class="form-control"
+          name="symtomps"
+          [(ngModel)]="appointment.symtomps"
+          required
+          #symtomps="ngModel"
+        />
+        <div *ngIf="symtomps.invalid && symtomps.touched" class="error-message">
+          Symptoms are required.
+        </div>
+      </div>
+    </div>
+    <br>
+    <!-- Number Input -->
+    <div class="mb-3 row">
+      <label for="number" class="col-sm-3 col-form-label">Number:</label>
+      <div class="col-sm-9">
+        <input
+          type="tel"
+          id="number"
+          class="form-control"
+          name="number"
+          [(ngModel)]="appointment.number"
+          required
+          #number="ngModel"
+        />
+        <div *ngIf="number.invalid && number.touched" class="error-message">
+          Number is required.
+        </div>
+      </div>
+
     </div>
 
-    <div class="sections">
-        <div class="section">
-            <img src="https://th.bing.com/th?id=OIP.PkPLrfcdipbQ0vULEqi-0AHaE8&w=306&h=204&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="Why Choose Us" style="max-width: 300px;">
-            <div class="section-text">
-                <h3>Why Choose Dileep Healthcare?</h3>
-                <p>We are a network of the world’s finest medical experts offering compassionate care, cutting-edge treatments, and advanced technology.</p>
-            </div>
-        </div>
 
-        <div class="section">
-            <img src="https://th.bing.com/th?id=OIP.BNIZFMzakbwIA6Q_BJRoqwHaGW&w=270&h=231&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="Heart Institute" style="max-width: 300px;">
-            <div class="section-text">
-                <h3>Heart Institute Expertise</h3>
-                <p>Our Heart Institute is renowned for its outstanding cardiology and cardiothoracic surgery services, ensuring the best outcomes.</p>
-            </div>
-        </div>
+    <br>
+
+    <!-- Submit Button -->
+    <div class="d-flex justify-content-center">
+      <button type="submit" class="btn btn-success"  >Submit</button>
+    </div>
+  </form>
 
         <div class="section">
             <img src="https://th.bing.com/th?id=OIP.J-P5kHiuhWfT4WaSVGasJgAAAA&w=306&h=204&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="Emergency Care" style="max-width: 300px;">
@@ -148,12 +194,10 @@
                 <p>Dial "1066" for advanced emergency care and free ambulance service anywhere, anytime.</p>
             </div>
         </div>
-    </div>
+
 
     <footer>
-        <p>Contact Us: 1800 123 4567 | © 2024-2025 Dileep Hospitals</p>
+        <p>Contact Us: 1860 344 5454 | © 2024-2025 Dileep Hospitals</p>
     </footer>
-</body>
 
-</html>
-<router-outlet></router-outlet>
+

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { MedicineService } from './../medicine.service';
 import { Medicine } from '../medicine';
 
@@ -13,12 +13,18 @@ import { Medicine } from '../medicine';
   styleUrls: ['./medicine.component.css'] // Corrected property name
 })
 export class MedicineComponent implements OnInit {
+update(id: number) {
+this.router.navigate(['/update-medicine', id]);
+}
+view(id: number) {
+throw new Error('Method not implemented.');
+}
 
 
 
   medicines: Medicine[] = [];
 
-  constructor(private medicineService: MedicineService) {}
+  constructor(private medicineService: MedicineService,private router:Router) {}
 
   ngOnInit(): void {
     this.getMedicines();

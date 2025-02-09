@@ -103,10 +103,6 @@
           <!-- <li class="nav-item">
             <a class="nav-link" routerLink="/admin" routerLinkActive="active">Admin</a>
           </li> -->
-
-        <li class="nav-item">
-        <a routerLink="/admin" routerLinkActive="active" >Dashboard</a>
-      </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="/appointment" routerLinkActive="active">Appointments </a>
           </li>
@@ -125,96 +121,132 @@
   </nav>
 
 
-
   <!-- Bootstrap JS & Popper.js -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybC8Rpm4R9CUyTnK+M7P56kfa8v3Do6jR9j5Z1jFi5Aw3d0JvZ" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0v8FqOw0fjk9pJS1tqzC4o4AN38U8bPp6f5PR0t9SJOlySu4" crossorigin="anonymous"></script>
 </body>
 </html>
+<div style="max-width: 600px; margin: 30px auto; padding: 20px; border: 2px solid #e0e0e0; border-radius: 12px; background-color: #f9f9f9; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+  <h2 align="center" style="color: blueviolet; margin-bottom: 20px;">Add New Patient</h2>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dileep Hospital</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdJ+1wM3eVpF3w8pE4Zf6zBfnMzNfEXpF5El8OlgY5gT4p1T4g0O8r" crossorigin="anonymous">
-  <!-- Google Fonts for Dileep Hospital name -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
-  <style>
+  <form (ngSubmit)="onSubmit()" #patientForm="ngForm">
+    <!-- Name Input -->
+    <div class="form-group mb-3">
+      <label for="name" style="font-weight: 600;">Name:</label>
+      <input
+        type="text"
+        id="name"
+        class="form-control"
+        name="name"
+        [(ngModel)]="patient.name"
+        required
+        placeholder="Enter patient's name"
+        #name="ngModel"
+      />
+      <div *ngIf="name.invalid && name.touched" class="text-danger">
+        Name is required.
+      </div>
+    </div>
+    <br>
 
-    .table {
-      margin-top: 20px;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-    }
-    .table th, .table td {
-      text-align: center;
-      padding: 15px;
-      vertical-align: middle;
-      font-weight: 300; /* Light font weight */
-    }
-    .table-striped tbody tr:nth-of-type(odd) {
-      background-color: #f9f9f9;
-    }
-    .table-bordered {
-      border: 1px solid #ddd;
-    }
-    .table-hover tbody tr:hover {
-      background-color: #f1f1f1;
-    }
-    .thead-dark {
-      background-color: #343a40;
-      color: white;
-      font-weight: 600; /* Bold font weight for header */
-    }
-    .table th {
-      font-size: 1.1rem;
-    }
-    .table td {
-      font-size: 1rem;
-    }
-  </style>
-</head>
-<body>
+    <!-- Age Input -->
+    <div class="form-group mb-3">
+      <label for="age" style="font-weight: 600;">Age:</label>
+      <input
+        type="number"
+        id="age"
+        class="form-control"
+        name="age"
+        [(ngModel)]="patient.age"
+        required
+        min="1"
+        max="120"
+        placeholder="Enter patient's age"
+        #age="ngModel"
+      />
+      <div *ngIf="age.invalid && age.touched" class="text-danger">
+        Age is required (1-120).
+      </div>
+    </div>
+    <br>
+    <!-- Blood Type Input -->
+    <div class="form-group mb-3">
+      <label for="blood" style="font-weight: 600;">Blood Type:</label>
+      <input
+        type="text"
+        id="blood"
+        class="form-control"
+        name="blood"
+        [(ngModel)]="patient.blood"
+        required
+        placeholder="Enter patient's blood type"
+        #blood="ngModel"
+      />
+      <div *ngIf="blood.invalid && blood.touched" class="text-danger">
+        Blood type is required.
+      </div>
+    </div>
+    <br>
+    <!-- Prescription Input -->
+    <div class="form-group mb-3">
+      <label for="prescription" style="font-weight: 600;">Prescription:</label>
+      <input
+        type="text"
+        id="prescription"
+        class="form-control"
+        name="prescription"
+        [(ngModel)]="patient.prescription"
+        required
+        placeholder="Enter prescription details"
+        #prescription="ngModel"
+      />
+      <div *ngIf="prescription.invalid && prescription.touched" class="text-danger">
+        Prescription is required.
+      </div>
+    </div>
+    <br>
+    <!-- Dose Input -->
+    <div class="form-group mb-3">
+      <label for="dose" style="font-weight: 600;">Dose:</label>
+      <input
+        type="text"
+        id="dose"
+        class="form-control"
+        name="dose"
+        [(ngModel)]="patient.dose"
+        required
+        placeholder="Enter dose details"
+        #dose="ngModel"
+      />
+      <div *ngIf="dose.invalid && dose.touched" class="text-danger">
+        Dose is required.
+      </div>
+    </div>
+    <br>
+    <!-- Urgency Input -->
+    <div class="form-group mb-3">
+      <label for="urgency" style="font-weight: 600;">Urgency:</label>
+      <input
+        type="text"
+        id="urgency"
+        class="form-control"
+        name="urgency"
+        [(ngModel)]="patient.urgency"
+        required
+        placeholder="Enter urgency level"
+        #urgency="ngModel"
+      />
+      <div *ngIf="urgency.invalid && urgency.touched" class="text-danger">
+        Urgency is required.
+      </div>
+    </div>
+    <br>
+    <!-- Submit Button -->
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary btn-lg" style="padding: 10px 30px; border-radius: 8px;" [disabled]="patientForm.invalid">
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
 
-
-  <!-- Main Content -->
-  <div class="container" >
-    <h1 style="text-align: center;">Appointments Information</h1>
-
-    <table class="table table-striped table-bordered table-hover">
-
-      <thead class="thead-dark">
-        <tr>
-          <th>Id</th>
-          <th>Name</th>
-          <th>Age</th>
-          <th>symtomps</th>
-          <th>Number</th>
-          <th>Action</th>
-
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let p of appointments">
-          <td>{{p.id}}</td>
-          <td>{{p.name}}</td>
-          <td>{{p.age}}</td>
-          <td>{{p.symtomps}}</td>
-          <td>{{p.number}}</td>
-          <td>
-            <button (click)="delete(p.id)" class="btn btn-danger">Delete</button>
-          </td>
-
-        </tr>
-      </tbody>
-    </table>
-  </div>
-<router-outlet></router-outlet>
-  <!-- Bootstrap JS & Popper.js -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybC8Rpm4R9CUyTnK+M7P56kfa8v3Do6jR9j5Z1jFi5Aw3d0JvZ" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0v8FqOw0fjk9pJS1tqzC4o4AN38U8bPp6f5PR0t9SJOlySu4" crossorigin="anonymous"></script>
-</body>
-</html>

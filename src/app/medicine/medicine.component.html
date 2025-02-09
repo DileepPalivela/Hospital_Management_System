@@ -98,12 +98,14 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-
           <li class="nav-item">
-            <a class="nav-link" routerLink="/createpatient" routerLinkActive="active">Add Patient</a>
+            <a class="nav-link" routerLink="/docdash" routerLinkActive="active">DashBoard</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/medicine-info" routerLinkActive="active">New Medicine</a>
+            <a class="nav-link" routerLink="/createpatient" routerLinkActive="active">Add New Patient</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/medicine-info" routerLinkActive="active">Medicine Information</a>
           </li>
           <!-- <li class="nav-item">
             <a class="nav-link" routerLink="/appointment" routerLinkActive="active">Appointments</a>
@@ -124,7 +126,7 @@
 </body>
 </html>
 <div class="container" >
-  <h1 style="text-align: center;">Appointments Information</h1>
+  <h1 style="text-align: center;">Medicine  Information</h1>
   <h2 style="margin-left: 20%; color: lightseagreen;" routerLink="/medicine-entry" routerLinkActive="router-link-active" class="hover-hand">+ Add New Medicine</h2>
   <table style="margin-left: 20%;" class="table table-striped table-bordered table-hover">
 
@@ -143,8 +145,12 @@
         <td>{{ d.drugname }}</td>
         <td>{{ d.stock}}</td>
         <td>
-          <button class="btn btn-danger" (click)="deleteMedicine(d.id)">Delete</button>
-      </tr>
+
+        <button (click)="update(d.id )" class="btn-danger" style="background-color: green;margin-right: 10px;padding: 4px 6px; border-radius: 4px;">Update</button>
+
+        <button (click)="deleteMedicine(d.id) " class="btn-danger" style="background-color: red;padding: 4px 6px; margin-right: 10px; border-radius: 4px;">Delete</button>
+
+      </td> </tr>
     </tbody>
   </table>
 

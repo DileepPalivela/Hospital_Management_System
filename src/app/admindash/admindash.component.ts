@@ -1,9 +1,11 @@
+import { AdminauthService } from './../adminauth.service';
+import { DocauthService } from './../docauth.service';
 import { FormsModule } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Patient } from '../patient';
 import { PatientService } from '../patient.service';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-admindash',
@@ -13,6 +15,10 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   styleUrls: ['./admindash.component.css']
 })
 export class AdmindashComponent implements OnInit {
+logout() {
+  this.adminauthService.logout();
+  this.router.navigate(['/home']);
+}
 delete(id: number) {
     this.patientService.deletePatient(id).subscribe((data) => {
       console.log(data);
@@ -21,7 +27,7 @@ delete(id: number) {
 }
   patients: Patient[] = [];
 
-  constructor(private patientService: PatientService) {}
+  constructor(private patientService: PatientService,private adminauthService:AdminauthService,private router:Router) {}
 
   ngOnInit(): void {
     this.getPatients();

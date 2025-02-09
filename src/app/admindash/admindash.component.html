@@ -19,7 +19,7 @@
       font-weight: 300; /* Light font weight */
     }
     .navbar {
-      background-color: #000;
+      background-color: darkslateblue;
       padding: 10px 20px; /* Reduced navbar height */
     }
     .navbar a {
@@ -109,8 +109,11 @@
           <li class="nav-item">
           <a routerLink="/newappoint" routerLinkActive="active" > Add Appointments</a>
         </li>
+        <li class="nav-item">
+          <a routerLink="/admin_patient" routerLinkActive="active" > Add New Patient</a>
+        </li>
         <li class="butt">
-          <button  class="btn-danger1" routerLink="/home"  routerLinkActive="router-link-active" >Log out</button>
+          <button  class="btn-danger1" (click)="logout()"  routerLinkActive="router-link-active" >Log out</button>
         </li>
         </ul>
       </div>

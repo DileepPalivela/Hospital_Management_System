@@ -1,0 +1,99 @@
+<div style="max-width: 600px; margin: 30px auto; padding: 20px; border: 2px solid #e0e0e0; border-radius: 12px; background-color: #f9f9f9; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+  <h2 align="center" style="color: blueviolet; margin-bottom: 20px;">Update Patient Information</h2>
+
+  <form (ngSubmit)="onSubmit()">
+    <!-- Patient Name -->
+    <div class="form-group mb-3">
+      <label for="name" style="font-weight: 600;">Name:</label>
+      <input
+        type="text"
+        [(ngModel)]="patient.name"
+        name="name"
+        class="form-control"
+        id="name"
+        placeholder="Enter name"
+        required
+      />
+    </div>
+<br>
+    <!-- Patient Age -->
+    <div class="form-group mb-3">
+      <label for="age" style="font-weight: 600;">Age:</label>
+      <input
+        type="number"
+        [(ngModel)]="patient.age"
+        name="age"
+        class="form-control"
+        id="age"
+        placeholder="Enter age"
+        required
+      />
+    </div>
+    <br>
+    <!-- Blood Group -->
+    <div class="form-group mb-3">
+      <label for="bloodGroup" style="font-weight: 600;">Blood Group:</label>
+      <input
+        type="text"
+        [(ngModel)]="patient.blood"
+        name="bloodGroup"
+        class="form-control"
+        id="bloodGroup"
+        placeholder="Enter blood group"
+        required
+      />
+    </div>
+    <br>
+    <!-- Prescription -->
+    <div class="form-group mb-3">
+      <label for="prescription" style="font-weight: 600;">Prescription:</label>
+      <input
+        type="text"
+        [(ngModel)]="patient.prescription"
+        name="prescription"
+        class="form-control"
+        id="prescription"
+        placeholder="Enter prescription"
+        required
+      />
+    </div>
+    <br>
+    <!-- Dose -->
+    <div class="form-group mb-3">
+      <label for="dose" style="font-weight: 600;">Dose:</label>
+      <input
+        type="text"
+        [(ngModel)]="patient.dose"
+        name="dose"
+        class="form-control"
+        id="dose"
+        placeholder="Enter dose"
+        required
+      />
+    </div>
+    <br>
+    <!-- Urgency -->
+    <div class="form-group mb-4">
+      <label for="urgency" style="font-weight: 600;">Urgency:</label>
+      <input
+        type="text"
+        [(ngModel)]="patient.urgency"
+        name="urgency"
+        class="form-control"
+        id="urgency"
+        placeholder="Enter urgency"
+        required
+      />
+    </div>
+    <br>
+    <!-- Submit Button -->
+    <div class="text-center">
+      <button
+        type="submit"
+        class="btn btn-primary btn-lg"
+        style="padding: 10px 30px; border-radius: 8px;">
+        Update
+      </button>
+    </div>
+  </form>
+</div>

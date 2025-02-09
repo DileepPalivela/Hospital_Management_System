@@ -20,4 +20,10 @@ export class PatientService {
   createPatient(patient:Patient):Observable<Patient>{
     return this.http.post<Patient>("http://localhost:8998/api/v1/insert",patient);
   }
+  getPatientById(id:number):Observable<Patient>{
+    return this.http.get<Patient>("http://localhost:8998/api/v1/patients"+"/"+id);
+  }
+  updatePatient(id:number,patient:Patient):Observable<object>{
+    return this.http.put<Patient>("http://localhost:8998/api/v1/patients"+"/"+id,patient);
+  }
 }
